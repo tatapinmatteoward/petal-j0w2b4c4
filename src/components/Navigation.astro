@@ -1,0 +1,84 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/floral-stories', label: 'Floral-Stories' },
+  { href: '/contributors', label: 'Contributors' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' }
+];
+---
+
+<nav class="bg-gradient-to-r from-purple-900 to-purple-700 shadow-lg">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-serif font-bold text-purple-100 hover:text-diamond-200 transition-colors duration-300">
+        Petals & Poetry
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-6">
+        {navItems.map((item) => (
+          <a 
+            href={item.href} 
+            class="text-purple-100 hover:text-diamond-200 font-serif transition-colors duration-300"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-purple-100">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col gap-4 pb-4">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="text-purple-100 hover:text-diamond-200 font-serif py-2 border-b border-purple-600 transition-colors duration-300"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<!-- Client-side JavaScript for mobile toggle -->
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
+
+<style>
+  .text-diamond-200 {
+    color: #d8b4fe;
+  }
+  
+  .bg-diamond-100 {
+    background-color: #d8b4fe;
+  }
+  
+  .text-purple-100 {
+    color: #f5f3ff;
+  }
+  
+  .bg-purple-700 {
+    background-color: #6d28d9;
+  }
+  
+  .border-purple-600 {
+    border-color: #7e22ce;
+  }
+  
+  .font-serif {
+    font-family: Georgia, serif;
+  }
+</style>

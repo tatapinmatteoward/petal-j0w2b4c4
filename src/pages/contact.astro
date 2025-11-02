@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Contact Us";
+const pageDescription = "Reach out to Petals & Poetry for inquiries about our floral-inspired literary events, custom verse commissions, or to share your own blooming ideas. We're here to cultivate connections.";
+const contactMethods = [
+  {
+    icon: "envelope",
+    title: "Email",
+    detail: "hello@petalsandpoetry.com"
+  },
+  {
+    icon: "phone",
+    title: "Phone",
+    detail: "+1 (555) 123-4567"
+  },
+  {
+    icon: "map-marker-alt",
+    title: "Address",
+    detail: "123 Garden Lane, Bloomington, BO 12345"
+  },
+  {
+    icon: "instagram",
+    title: "Instagram",
+    detail: "@petals_poetry"
+  }
+];
+const socialLinks = [
+  { name: "Instagram", icon: "instagram", url: "#" },
+  { name: "Twitter", icon: "twitter", url: "#" },
+  { name: "Facebook", icon: "facebook", url: "#" }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="relative min-h-screen">
+    {/* Hero Section */}
+    <div class="relative bg-gradient-to-br from-purple-900 via-violet-800 to-indigo-900 py-24 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 border border-dashed border-white rounded-full"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 border border-dashed border-white rounded-full"></div>
+        <div class="absolute top-1/3 right-1/4 w-16 h-16 border border-dashed border-white rounded-full"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-20 h-20 border border-dashed border-white rounded-full"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6 tracking-wide">
+            Contact Us
+          </h1>
+          <div class="w-24 h-1 bg-diamond-pattern mx-auto mb-8"></div>
+          <p class="text-xl text-purple-100 font-serif max-w-2xl mx-auto leading-relaxed">
+            Where Flowers Bloom into Verse
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Content Section */}
+    <div class="py-16 bg-gradient-to-b from-white to-purple-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl shadow-lg p-8 mb-12 border border-purple-100">
+            <div class="flex items-start mb-6">
+              <div class="mr-4 text-purple-700 text-2xl">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-serif font-semibold text-purple-900 mb-2">In the garden of words...</h2>
+                <p class="text-gray-700 leading-relaxed">
+                  At <span class="font-serif font-bold text-purple-800">Petals & Poetry</span>, we cherish every budding conversation. 
+                  Whether you're enchanted by our vintage literary gatherings, seeking bespoke floral poetry, 
+                  or simply wish to share a verse-inspired thought, our door—or rather, our digital arbor—is always open.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Methods */}
+            <div class="bg-white rounded-xl shadow-lg p-8 border border-purple-100">
+              <h3 class="text-2xl font-serif font-semibold text-purple-900 mb-6 pb-2 border-b border-purple-100">
+                How to Reach Us
+              </h3>
+              
+              <div class="space-y-6">
+                {contactMethods.map((method, index) => (
+                  <div key={index} class="flex items-start group">
+                    <div class="mt-1 mr-4 text-purple-600 text-xl">
+                      <i class={`fas fa-${method.icon}`}></i>
+                    </div>
+                    <div>
+                      <h4 class="font-serif font-medium text-lg text-purple-800 group-hover:text-purple-900 transition-colors">
+                        {method.title}
+                      </h4>
+                      <p class="text-gray-700 mt-1">{method.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div class="mt-8">
+                <h4 class="font-serif font-medium text-lg text-purple-800 mb-3">Follow Our Blossom</h4>
+                <div class="flex space-x-4">
+                  {socialLinks.map((social, index) => (
+                    <a 
+                      key={index} 
+                      href={social.url}
+                      class="w-12 h-12 flex items-center justify-center bg-purple-100 hover:bg-purple-200 rounded-full text-purple-700 hover:text-purple-900 transition-all duration-300 transform hover:scale-110"
+                      aria-label={social.name}
+                    >
+                      <i class={`fab fa-${social.icon}`}></i>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl shadow-lg p-8 border border-purple-100">
+              <h3 class="text-2xl font-serif font-semibold text-purple-900 mb-6 pb-2 border-b border-purple-100">
+                Send Us Your Verse
+              </h3>
+              
+              <form class="space-y-6">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-purple-800 mb-1">Your Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    class="w-full px-4 py-3 rounded-lg border border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 bg-white text-purple-900 transition-colors"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                
+                <div>
+                  <label for="email" class="block text-sm font-medium text-purple-800 mb-1">Your Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    class="w-full px-4 py-3 rounded-lg border border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 bg-white text-purple-900 transition-colors"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-purple-800 mb-1">Subject</label>
+                  <input 
+                    type="text" 
+                    id="subject" 
+                    class="w-full px-4 py-3 rounded-lg border border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 bg-white text-purple-900 transition-colors"
+                    placeholder="What's your blossom about?"
+                  />
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-purple-800 mb-1">Your Message</label>
+                  <textarea 
+                    id="message" 
+                    rows="4" 
+                    class="w-full px-4 py-3 rounded-lg border border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 bg-white text-purple-900 transition-colors"
+                    placeholder="Share your poetic thoughts..."
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  class="w-full bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-3 px-6 rounded-lg font-medium hover:from-purple-800 hover:to-indigo-900 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                >
+                  Send Your Verse
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Footer Quote */}
+    <div class="bg-gradient-to-r from-purple-900 to-indigo-900 py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <blockquote class="text-xl md:text-2xl font-serif italic text-white mb-6">
+            "In the quiet garden of connection, every word is a flower waiting to bloom."
+          </blockquote>
+          <p class="text-purple-200 font-serif">— Petals & Poetry</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  {`
+      .diamond-pattern {
+        background-image: 
+          linear-gradient(45deg, transparent 49%, #d8b4fe 50%, transparent 51%),
+          linear-gradient(-45deg, transparent 49%, #d8b4fe 50%, transparent 51%);
+        background-size: 16px 16px;
+        background-position: 0 0, 8px 8px;
+      }
+      
+      @media (min-width: 1024px) {
+        .diamond-pattern {
+          background-size: 24px 24px;
+          background-position: 0 0, 12px 12px;
+        }
+      }
+      
+      .hover\:scale-110:hover {
+        transform: scale(1.1);
+      }
+    `}
+</style>
+</Layout>
